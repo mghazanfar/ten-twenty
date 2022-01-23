@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Divider } from "./components/divider";
 import { Navbar } from "./components/navbar";
 import { FullWidth } from "./sections/fullwidth";
 import { Horizontal } from "./sections/horizontal";
@@ -9,6 +10,7 @@ import {
   peopleData,
   peopleDataWithBlueAvatars,
   reviews,
+  videos,
 } from "./sections/people/people.data";
 import { Perspective } from "./sections/perspective";
 import { Recipes } from "./sections/recipes";
@@ -29,6 +31,8 @@ class App extends Component {
         <Perspective />
         <People peopleData={reviews} noIndex={true} />
         <Recipes />
+        <People peopleData={videos} noIndex={true} videos={true} />
+        <Divider />
       </div>
     );
   }

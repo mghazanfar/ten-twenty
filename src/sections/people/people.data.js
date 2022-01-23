@@ -21,6 +21,10 @@ import Eggs from '../../assets/eggs.png'
 import Pasta from '../../assets/pasta.png'
 import Grill from '../../assets/grill.png'
 
+import CCTV from '../../assets/cctv.png'
+import Mask from '../../assets/mask.png'
+import Board from '../../assets/board.png'
+
 export const peopleData = [
     {
         title:"Vladimir Putin",
@@ -184,4 +188,32 @@ export const recipes = [
         inverse: true,
         horizontal: true
     },
+]
+
+
+export const videos = [
+    {
+        title:"EAT",
+        subheader:"Meals on wheels: Meals on wheels: best in the UAE best in Meals on wheels: best in",
+        img: CCTV,
+        author: "U. R. Oliver",
+        inverse: true,
+        variant:"center"
+    },
+    {
+        title:"EAT",
+        subheader:"Meals on wheels: Meals on wheels: best in the UAE best in Meals on wheels: best in",
+        img: Mask,
+        author: "U. R. Oliver",
+        inverse: true,
+        variant:"center"
+    },
+    {
+        title:"EAT",
+        subheader:"Meals on wheels: Meals on wheels: best in the UAE best in Meals on wheels: best in",
+        img: Board,
+        author: "U. R. Oliver",
+        inverse: true,
+        variant:"center"
+    }
 ]

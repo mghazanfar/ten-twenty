@@ -3,7 +3,7 @@ import { ArticleCard } from "../../components/article-card";
 import { Person } from "../../components/person";
 import { SectionDivider } from "../../components/section-divider";
 
-export const People = ({ peopleData, noIndex }) => {
+export const People = ({ peopleData, noIndex, videos }) => {
   return (
     <div>
       <SectionDivider color="#EDC47F" text="1 row: 5 circles with bg" />
@@ -12,7 +12,7 @@ export const People = ({ peopleData, noIndex }) => {
           marginTop: 40,
           marginBottom: 40,
           padding: "56px 103px",
-          backgroundColor: "#F8F1E8",
+          backgroundColor: videos ? "white" : "#F8F1E8",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",

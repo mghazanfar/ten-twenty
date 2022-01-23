@@ -2,12 +2,12 @@ import React from "react";
 
 export const themes = {
   light: {
-    foreground: "#000000",
-    background: "#eeeeee",
+    text:"black",
+    background: "white",
   },
   dark: {
-    foreground: "#ffffff",
-    background: "#222222",
+    text:"white",
+    background: "#3D3D3D",
   },
 };
 

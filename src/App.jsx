@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { Divider } from "./components/divider";
 import { Navbar } from "./components/navbar";
 import { Footer } from "./sections/footer";
@@ -17,32 +17,42 @@ import { Perspective } from "./sections/perspective";
 import { Recipes } from "./sections/recipes";
 import { ThemeContext, themes } from "./store/theme-context";
 
+const useStyles = (theme) => {
+  return {
+    containerOuter: { backgroundColor: theme.background },
+    containerInner: { padding: 52 },
+    main: { margin: "41px 0px" },
+  };
+};
+
 const App = () => {
   const [theme, setTheme] = useState(themes.light);
+  const styles = useStyles(theme);
   const toggleTheme = () => {
     setTheme(theme === themes.dark ? themes.light : themes.dark);
-    alert("theme is changed" + theme.background);
   };
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div style={{ margin: 52 }}>
-        <Navbar />
-        <div style={{ margin: "41px 0px" }}>
-          <Main />
+    <div style={styles.containerOuter}>
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <div style={styles.containerInner}>
+          <Navbar />
+          <div style={styles.main}>
+            <Main />
+          </div>
+          <People peopleData={peopleData} />
+          <Horizontal />
+          <People peopleData={peopleDataWithBlueAvatars} noIndex={true} />
+          <FullWidth />
+          <Mixed />
+          <Perspective />
+          <People peopleData={reviews} noIndex={true} />
+          <Recipes />
+          <People peopleData={videos} noIndex={true} videos={true} />
+          <Divider />
+          <Footer />
         </div>
-        <People peopleData={peopleData} />
-        <Horizontal />
-        <People peopleData={peopleDataWithBlueAvatars} noIndex={true} />
-        <FullWidth />
-        <Mixed />
-        <Perspective />
-        <People peopleData={reviews} noIndex={true} />
-        <Recipes />
-        <People peopleData={videos} noIndex={true} videos={true} />
-        <Divider />
-        <Footer />
-      </div>
-    </ThemeContext.Provider>
+      </ThemeContext.Provider>
+    </div>
   );
 };
 

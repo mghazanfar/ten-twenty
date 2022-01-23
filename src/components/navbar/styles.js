@@ -7,7 +7,7 @@ header:{
     paddingLeft: 65,
     paddingBottom: 48,
   },
-  center:{ display: "flex", alignItems: "center" },
+  center:{ display: "flex", alignItems: "center", zIndex:200 },
   menu:{ marginLeft: 13, marginRight: 22, fontWeight: 700 },
   title:{
     flex: 1,

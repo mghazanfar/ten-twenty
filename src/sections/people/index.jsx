@@ -1,6 +1,5 @@
 import React from "react";
 import { ArticleCard } from "../../components/article-card";
-import { Person } from "../../components/person";
 import { SectionDivider } from "../../components/section-divider";
 
 export const People = ({ peopleData, noIndex, videos }) => {

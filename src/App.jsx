@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Divider } from "./components/divider";
 import { Navbar } from "./components/navbar";
 import { Footer } from "./sections/footer";
@@ -15,10 +15,16 @@ import {
 } from "./sections/people/people.data";
 import { Perspective } from "./sections/perspective";
 import { Recipes } from "./sections/recipes";
+import { ThemeContext, themes } from "./store/theme-context";
 
-class App extends Component {
-  render() {
-    return (
+const App = () => {
+  const [theme, setTheme] = useState(themes.light);
+  const toggleTheme = () => {
+    setTheme(theme === themes.dark ? themes.light : themes.dark);
+    alert("theme is changed" + theme.background);
+  };
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div style={{ margin: 52 }}>
         <Navbar />
         <div style={{ margin: "41px 0px" }}>
@@ -36,8 +42,8 @@ class App extends Component {
         <Divider />
         <Footer />
       </div>
-    );
-  }
-}
+    </ThemeContext.Provider>
+  );
+};
 
 export default App;

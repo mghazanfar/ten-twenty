@@ -1,4 +1,5 @@
 import React from "react";
+import { ThemeContext } from "../../store/theme-context";
 import { day } from "../../theme.day";
 import { Divider } from "../divider";
 import { menu, night, today } from "../svg";
@@ -14,7 +15,19 @@ export const Navbar = () => {
         <div style={navbarStyles.center}>
           <div>{menu}</div>
           <Roboto style={navbarStyles.menu}>MENU</Roboto>
-          <div>{night}</div>
+          <ThemeContext.Consumer>
+            {({ theme, toggleTheme }) => (
+              <div
+                onClick={() => {
+                  debugger;
+                  toggleTheme();
+                }}
+                style={{ cursor: "pointer" }}
+              >
+                {night}
+              </div>
+            )}
+          </ThemeContext.Consumer>
         </div>
         <div style={navbarStyles.title}>{today}</div>
       </div>

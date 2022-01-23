@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Navbar } from "./components/navbar";
+import { FullWidth } from "./sections/fullwidth";
 import { Horizontal } from "./sections/horizontal";
 import { Main } from "./sections/main";
+import { Mixed } from "./sections/mixed";
 import { People } from "./sections/people";
 import {
   peopleData,
@@ -19,6 +21,8 @@ class App extends Component {
         <People peopleData={peopleData} />
         <Horizontal />
         <People peopleData={peopleDataWithBlueAvatars} noIndex={true} />
+        <FullWidth />
+        <Mixed />
       </div>
     );
   }

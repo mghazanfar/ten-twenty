@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Divider } from "./components/divider";
 import { Navbar } from "./components/navbar";
+import { Footer } from "./sections/footer";
 import { FullWidth } from "./sections/fullwidth";
 import { Horizontal } from "./sections/horizontal";
 import { Main } from "./sections/main";
@@ -33,6 +34,7 @@ class App extends Component {
         <Recipes />
         <People peopleData={videos} noIndex={true} videos={true} />
         <Divider />
+        <Footer />
       </div>
     );
   }

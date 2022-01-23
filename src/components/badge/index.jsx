@@ -7,8 +7,19 @@ const badgeStyle = {
     padding: "5px 14px",
     display: "inline",
   },
+  disabled: {
+    backgroundColor: "white",
+    color: "black",
+    padding: "5px 14px",
+    display: "inline",
+    border: "1px solid black",
+  },
 };
 
-export const Badge = ({ children }) => {
-  return <div style={badgeStyle.container}>{children}</div>;
+export const Badge = ({ children, disabled }) => {
+  return (
+    <div style={disabled ? badgeStyle.disabled : badgeStyle.container}>
+      {children}
+    </div>
+  );
 };

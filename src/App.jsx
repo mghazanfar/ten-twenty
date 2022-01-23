@@ -9,6 +9,7 @@ import {
   peopleData,
   peopleDataWithBlueAvatars,
 } from "./sections/people/people.data";
+import { Perspective } from "./sections/perspective";
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
         <People peopleData={peopleDataWithBlueAvatars} noIndex={true} />
         <FullWidth />
         <Mixed />
+        <Perspective />
       </div>
     );
   }

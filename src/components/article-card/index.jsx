@@ -12,6 +12,7 @@ export const ArticleCard = ({
   horizontal,
   index,
   imgWidth,
+  disabled,
 }) => {
   return (
     <div
@@ -54,7 +55,7 @@ export const ArticleCard = ({
       >
         {title && (
           <div>
-            <Badge>{title}</Badge>
+            <Badge disabled={disabled}>{title}</Badge>
           </div>
         )}
         {header && (
@@ -66,6 +67,7 @@ export const ArticleCard = ({
               marginTop: 20,
               marginBottom: 25,
               width: variant === "center" ? "70%" : "100%",
+              color: disabled ? "#dddddd" : "black",
             }}
           >
             {header}
@@ -79,6 +81,7 @@ export const ArticleCard = ({
               marginTop: header ? 0 : 10,
               textAlign: variant,
               width: variant === "center" ? "70%" : "100%",
+              color: disabled ? "#dddddd" : "black",
             }}
           >
             {subheader}
@@ -90,6 +93,7 @@ export const ArticleCard = ({
             fontSize: 12,
             marginTop: 21,
             marginBottom: horizontal ? 15 : 24,
+            color: disabled ? "#dddddd" : "black",
           }}
         >
           {author}

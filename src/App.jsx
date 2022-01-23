@@ -8,8 +8,10 @@ import { People } from "./sections/people";
 import {
   peopleData,
   peopleDataWithBlueAvatars,
+  reviews,
 } from "./sections/people/people.data";
 import { Perspective } from "./sections/perspective";
+import { Recipes } from "./sections/recipes";
 
 class App extends Component {
   render() {
@@ -25,6 +27,8 @@ class App extends Component {
         <FullWidth />
         <Mixed />
         <Perspective />
+        <People peopleData={reviews} noIndex={true} />
+        <Recipes />
       </div>
     );
   }

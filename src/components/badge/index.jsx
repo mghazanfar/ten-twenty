@@ -6,6 +6,7 @@ const badgeStyle = {
     color: "white",
     padding: "5px 14px",
     display: "inline",
+    textTransform: "uppercase",
   },
   disabled: {
     backgroundColor: "white",
@@ -13,6 +14,7 @@ const badgeStyle = {
     padding: "5px 14px",
     display: "inline",
     border: "1px solid black",
+    textTransform: "uppercase",
   },
 };
 

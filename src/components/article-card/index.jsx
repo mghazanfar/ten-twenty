@@ -3,6 +3,8 @@ import { ThemeContext } from "../../store/theme-context";
 import { Badge } from "../badge";
 import { PlayFair, Roboto } from "../typography";
 import { useArticleCardStyles } from "./styles";
+import "./index.css";
+
 export const ArticleCard = ({
   variant = "flex-start",
   title,
@@ -28,7 +30,7 @@ export const ArticleCard = ({
           header
         );
         return (
-          <div style={styles.container}>
+          <div style={styles.container} className="container">
             {index && <Roboto style={styles.index}>{index}</Roboto>}
             <div style={styles.title}>
               {title && (

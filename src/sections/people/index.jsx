@@ -1,6 +1,7 @@
 import React from "react";
 import { ArticleCard } from "../../components/article-card";
 import { SectionDivider } from "../../components/section-divider";
+import { useStyles } from "./style";
 
 export const People = ({ peopleData, noIndex, videos }) => {
   return (
@@ -8,13 +9,8 @@ export const People = ({ peopleData, noIndex, videos }) => {
       <SectionDivider color="#EDC47F" text="1 row: 5 circles with bg" />
       <div
         style={{
-          marginTop: 40,
-          marginBottom: 40,
-          padding: "56px 103px",
-          backgroundColor: videos ? "white" : "#F8F1E8",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
+          ...useStyles.container,
+          backgroundColor: videos ? "transparent" : "#F8F1E8",
         }}
       >
         {peopleData.map((person, i) => (

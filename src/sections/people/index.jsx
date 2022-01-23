@@ -1,26 +1,12 @@
 import React from "react";
-import { Divider } from "../../components/divider";
+import { ArticleCard } from "../../components/article-card";
 import { Person } from "../../components/person";
-import { Roboto } from "../../components/typography";
-import { peopleData } from "./people.data";
+import { SectionDivider } from "../../components/section-divider";
 
-export const People = () => {
+export const People = ({ peopleData, noIndex }) => {
   return (
     <div>
-      <Divider />
-      <Roboto
-        style={{
-          color: "#EDC47F",
-          fontWeight: 900,
-          fontSize: 40,
-          textTransform: "uppercase",
-          textAlign: "center",
-          padding: 15,
-        }}
-      >
-        1 row: 5 circles with bg
-      </Roboto>
-      <Divider />
+      <SectionDivider color="#EDC47F" text="1 row: 5 circles with bg" />
       <div
         style={{
           marginTop: 40,
@@ -33,7 +19,9 @@ export const People = () => {
         }}
       >
         {peopleData.map((person, i) => (
-          <Person {...person} index={i + 1} />
+          <div style={{ width: peopleData.length === 4 ? "23%" : "25%" }}>
+            <ArticleCard {...person} index={noIndex ? "" : i + 1} />
+          </div>
         ))}
       </div>
     </div>

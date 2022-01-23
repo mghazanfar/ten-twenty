@@ -3,6 +3,10 @@ import { Navbar } from "./components/navbar";
 import { Horizontal } from "./sections/horizontal";
 import { Main } from "./sections/main";
 import { People } from "./sections/people";
+import {
+  peopleData,
+  peopleDataWithBlueAvatars,
+} from "./sections/people/people.data";
 
 class App extends Component {
   render() {
@@ -12,8 +16,9 @@ class App extends Component {
         <div style={{ margin: "41px 0px" }}>
           <Main />
         </div>
-        <People />
+        <People peopleData={peopleData} />
         <Horizontal />
+        <People peopleData={peopleDataWithBlueAvatars} noIndex={true} />
       </div>
     );
   }

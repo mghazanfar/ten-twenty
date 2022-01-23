@@ -1,26 +1,14 @@
 import React from "react";
 import { ArticleCard } from "../../components/article-card";
 import { Divider } from "../../components/divider";
+import { SectionDivider } from "../../components/section-divider";
 import { Roboto } from "../../components/typography";
 import { horizontalData } from "./horizontal.data";
 
 export const Horizontal = () => {
   return (
     <div>
-      <Divider />
-      <Roboto
-        style={{
-          color: "#F0C0C1",
-          fontWeight: 900,
-          fontSize: 40,
-          textTransform: "uppercase",
-          textAlign: "center",
-          padding: 15,
-        }}
-      >
-        1 row: 5 circles with bg
-      </Roboto>
-      <Divider />
+      <SectionDivider color="#F0C0C1" text="2 rows: 1 x 3" />
       <div style={{ marginTop: 40, marginBottom: 40 }}>
         <div>
           <ArticleCard {...horizontalData[0]} />

@@ -10,11 +10,14 @@ export const ArticleCard = ({
   img,
   inverse,
   horizontal,
+  index,
+  imgWidth,
 }) => {
   return (
     <div
       style={{
         display: "flex",
+        position: "relative",
         flexDirection: horizontal
           ? inverse
             ? "row-reverse"
@@ -28,6 +31,20 @@ export const ArticleCard = ({
         },
       }}
     >
+      {index && (
+        <Roboto
+          style={{
+            fontWeight: 500,
+            fontSize: 18,
+            color: "#7B7B7B",
+            position: "absolute",
+            left: 0,
+            top: 0,
+          }}
+        >
+          {index}
+        </Roboto>
+      )}
       <div
         style={{
           display: "flex",
@@ -72,7 +89,7 @@ export const ArticleCard = ({
             fontWeight: 500,
             fontSize: 12,
             marginTop: 21,
-            marginBottom: 24,
+            marginBottom: horizontal ? 15 : 24,
           }}
         >
           {author}
@@ -81,7 +98,7 @@ export const ArticleCard = ({
       {img && (
         <img
           src={img}
-          width={"100%"}
+          width={imgWidth || "100%"}
           style={{
             marginBottom: 24,
             marginRight: horizontal ? 40 : 0,

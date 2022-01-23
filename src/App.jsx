@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Navbar } from "./components/navbar";
+import { Horizontal } from "./sections/horizontal";
 import { Main } from "./sections/main";
 import { People } from "./sections/people";
 
@@ -12,6 +13,7 @@ class App extends Component {
           <Main />
         </div>
         <People />
+        <Horizontal />
       </div>
     );
   }

@@ -9,13 +9,23 @@ export const ArticleCard = ({
   author,
   img,
   inverse,
+  horizontal,
 }) => {
   return (
     <div
       style={{
         display: "flex",
-        flexDirection: inverse ? "column-reverse" : "column",
-        alignItems: variant,
+        flexDirection: horizontal
+          ? inverse
+            ? "row-reverse"
+            : "row"
+          : inverse
+          ? "column-reverse"
+          : "column",
+        alignItems: horizontal ? "center" : variant,
+        "&:hover": {
+          backgroundColor: "red",
+        },
       }}
     >
       <div
@@ -25,31 +35,38 @@ export const ArticleCard = ({
           flexDirection: "column",
         }}
       >
-        <div>
-          <Badge>{title}</Badge>
-        </div>
-        <PlayFair
-          style={{
-            fontWeight: 500,
-            fontSize: 28,
-            textAlign: variant,
-            marginTop: 20,
-            marginBottom: 25,
-            width: variant === "center" ? "70%" : "100%",
-          }}
-        >
-          {header}
-        </PlayFair>
-        <PlayFair
-          style={{
-            fontWeight: 400,
-            fontSize: 18,
-            textAlign: variant,
-            width: variant === "center" ? "70%" : "100%",
-          }}
-        >
-          {subheader}
-        </PlayFair>
+        {title && (
+          <div>
+            <Badge>{title}</Badge>
+          </div>
+        )}
+        {header && (
+          <PlayFair
+            style={{
+              fontWeight: 500,
+              fontSize: 28,
+              textAlign: variant,
+              marginTop: 20,
+              marginBottom: 25,
+              width: variant === "center" ? "70%" : "100%",
+            }}
+          >
+            {header}
+          </PlayFair>
+        )}
+        {subheader && (
+          <PlayFair
+            style={{
+              fontWeight: 400,
+              fontSize: 18,
+              marginTop: header ? 0 : 10,
+              textAlign: variant,
+              width: variant === "center" ? "70%" : "100%",
+            }}
+          >
+            {subheader}
+          </PlayFair>
+        )}
         <Roboto
           style={{
             fontWeight: 500,
@@ -67,6 +84,7 @@ export const ArticleCard = ({
           width={"100%"}
           style={{
             marginBottom: 24,
+            marginRight: horizontal ? 40 : 0,
           }}
         />
       )}

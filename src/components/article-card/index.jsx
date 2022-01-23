@@ -1,6 +1,8 @@
 import React from "react";
+import { ThemeContext } from "../../store/theme-context";
 import { Badge } from "../badge";
 import { PlayFair, Roboto } from "../typography";
+import { useArticleCardStyles } from "./styles";
 export const ArticleCard = ({
   variant = "flex-start",
   title,
@@ -15,100 +17,37 @@ export const ArticleCard = ({
   disabled,
 }) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        position: "relative",
-        flexDirection: horizontal
-          ? inverse
-            ? "row-reverse"
-            : "row"
-          : inverse
-          ? "column-reverse"
-          : "column",
-        alignItems: horizontal ? "center" : variant,
-        "&:hover": {
-          backgroundColor: "red",
-        },
-      }}
-    >
-      {index && (
-        <Roboto
-          style={{
-            fontWeight: 500,
-            fontSize: 18,
-            color: "#7B7B7B",
-            position: "absolute",
-            left: 0,
-            top: 0,
-          }}
-        >
-          {index}
-        </Roboto>
-      )}
-      <div
-        style={{
-          display: "flex",
-          alignItems: variant,
-          flexDirection: "column",
-        }}
-      >
-        {title && (
-          <div>
-            <Badge disabled={disabled}>{title}</Badge>
+    <ThemeContext.Consumer>
+      {({ theme }) => {
+        const styles = useArticleCardStyles(
+          theme,
+          horizontal,
+          inverse,
+          variant,
+          disabled,
+          header
+        );
+        return (
+          <div style={styles.container}>
+            {index && <Roboto style={styles.index}>{index}</Roboto>}
+            <div style={styles.title}>
+              {title && (
+                <div>
+                  <Badge disabled={disabled}>{title}</Badge>
+                </div>
+              )}
+              {header && <PlayFair style={styles.header}>{header}</PlayFair>}
+              {subheader && (
+                <PlayFair style={styles.subheader}>{subheader}</PlayFair>
+              )}
+              <Roboto style={styles.author}>{author}</Roboto>
+            </div>
+            {img && (
+              <img src={img} width={imgWidth || "100%"} style={styles.img} />
+            )}
           </div>
-        )}
-        {header && (
-          <PlayFair
-            style={{
-              fontWeight: 500,
-              fontSize: 28,
-              textAlign: variant,
-              marginTop: 20,
-              marginBottom: 25,
-              width: variant === "center" ? "70%" : "100%",
-              color: disabled ? "#dddddd" : "black",
-            }}
-          >
-            {header}
-          </PlayFair>
-        )}
-        {subheader && (
-          <PlayFair
-            style={{
-              fontWeight: 400,
-              fontSize: 18,
-              marginTop: header ? 0 : 10,
-              textAlign: variant,
-              width: variant === "center" ? "70%" : "100%",
-              color: disabled ? "#dddddd" : "black",
-            }}
-          >
-            {subheader}
-          </PlayFair>
-        )}
-        <Roboto
-          style={{
-            fontWeight: 500,
-            fontSize: 12,
-            marginTop: 21,
-            marginBottom: horizontal ? 15 : 24,
-            color: disabled ? "#dddddd" : "black",
-          }}
-        >
-          {author}
-        </Roboto>
-      </div>
-      {img && (
-        <img
-          src={img}
-          width={imgWidth || "100%"}
-          style={{
-            marginBottom: 24,
-            marginRight: horizontal ? 40 : 0,
-          }}
-        />
-      )}
-    </div>
+        );
+      }}
+    </ThemeContext.Consumer>
   );
 };

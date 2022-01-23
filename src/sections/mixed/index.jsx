@@ -4,20 +4,14 @@ import { SectionDivider } from "../../components/section-divider";
 import Car from "../../assets/blue-car.png";
 import Dinner from "../../assets/dinner.png";
 import View from "../../assets/view.png";
+import { styles } from "./styles";
 
 export const Mixed = () => {
   return (
     <div>
       <SectionDivider color={"#EDC47F"} text={"1 row: 2 x 1 inverted"} />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: 40,
-          marginBottom: 40,
-        }}
-      >
-        <div style={{ width: "32%" }}>
+      <div style={styles.container}>
+        <div style={styles.item}>
           <ArticleCard
             title={"OPEN HOUSE"}
             author={"U. R. Oliver"}
@@ -29,7 +23,7 @@ export const Mixed = () => {
             inverse={true}
           />
         </div>
-        <div style={{ width: "32%" }}>
+        <div style={styles.item}>
           <ArticleCard
             title={"OPEN HOUSE"}
             author={"U. R. Oliver"}
@@ -40,7 +34,7 @@ export const Mixed = () => {
             variant="center"
           />
         </div>
-        <div style={{ width: "32%" }}>
+        <div style={styles.item}>
           <ArticleCard
             title={"OPEN HOUSE"}
             author={"U. R. Oliver"}

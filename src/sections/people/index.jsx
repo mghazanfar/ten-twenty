@@ -8,7 +8,6 @@ export const People = ({ peopleData, noIndex, videos }) => {
   return (
     <ThemeContext.Consumer>
       {({ theme }) => {
-        debugger;
         return (
           <div>
             <SectionDivider color="#EDC47F" text="1 row: 5 circles with bg" />

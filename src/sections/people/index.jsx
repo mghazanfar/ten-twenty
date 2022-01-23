@@ -32,8 +32,8 @@ export const People = () => {
           justifyContent: "space-between",
         }}
       >
-        {peopleData.map((person) => (
-          <Person {...person} />
+        {peopleData.map((person, i) => (
+          <Person {...person} index={i + 1} />
         ))}
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeContext } from "../../store/theme-context";
 import { Divider } from "../divider";
-import { menu, night, today } from "../svg";
+import { menu, menuDark, night, nightDark, today } from "../svg";
 import { Roboto } from "../typography";
 import { useNavbarStyles } from "./styles";
 
@@ -16,7 +16,7 @@ export const Navbar = () => {
           <>
             <div style={navbarStyles.header}>
               <div style={navbarStyles.center}>
-                <div>{menu}</div>
+                <div>{theme.text === "black" ? menu : menuDark}</div>
                 <Roboto style={navbarStyles.menu}>MENU</Roboto>
                 <div
                   onClick={() => {
@@ -24,7 +24,7 @@ export const Navbar = () => {
                   }}
                   style={{ cursor: "pointer" }}
                 >
-                  {night}
+                  {theme.text === "black" ? night : nightDark}
                 </div>
               </div>
               <div style={navbarStyles.title}>{today}</div>

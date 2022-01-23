@@ -1,4 +1,5 @@
 import React from "react";
+import { ThemeContext } from "../../store/theme-context";
 
 const badgeStyle = {
   container: {
@@ -20,8 +21,18 @@ const badgeStyle = {
 
 export const Badge = ({ children, disabled }) => {
   return (
-    <div style={disabled ? badgeStyle.disabled : badgeStyle.container}>
-      {children}
-    </div>
+    <ThemeContext.Consumer>
+      {({ theme }) => (
+        <div
+          style={
+            disabled || theme.text === "white"
+              ? badgeStyle.disabled
+              : badgeStyle.container
+          }
+        >
+          {children}
+        </div>
+      )}
+    </ThemeContext.Consumer>
   );
 };
